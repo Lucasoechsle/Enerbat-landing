@@ -3,19 +3,25 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import Link from "next/link"
 
 const banners = [
   {
     id: 1,
-    title: "Baterías de Alta Calidad",
-    description: "Máxima eficiencia y durabilidad garantizada",
+    title: "Mirá Todos Nuestros Productos",
+    description: "Baterías, cargadores y más soluciones energéticas",
     image: "/placeholder.svg?height=600&width=1200",
+    button: {
+      text: "Ver Productos",
+      href: "/productos",
+    },
   },
   {
     id: 2,
-    title: "Soluciones Energéticas",
-    description: "Para todas sus necesidades de almacenamiento",
+    title: "¿Querés Comprar o Vender?",
+    description: "Dejanos ayudarte a elegir o vender tu batería",
     image: "/placeholder.svg?height=600&width=1200",
+    dualButtons: true,
   },
   {
     id: 3,
@@ -59,9 +65,32 @@ export default function BannerCarousel() {
             className="object-cover"
             priority={index === 0}
           />
-          <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-4 text-center">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">{banner.title}</h2>
+          <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-4 text-center space-y-4">
+            <h2 className="text-3xl md:text-5xl font-bold">{banner.title}</h2>
             <p className="text-xl md:text-2xl">{banner.description}</p>
+
+            {banner.button && (
+              <Link href={banner.button.href}>
+                <button className="mt-4 bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition">
+                  {banner.button.text}
+                </button>
+              </Link>
+            )}
+
+            {banner.dualButtons && (
+              <div className="flex space-x-4 mt-4">
+                <a href="#contacto">
+                  <button className="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition">
+                    Quiero Comprar
+                  </button>
+                </a>
+                <a href="#contacto">
+                  <button className="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition">
+                    Quiero Vender
+                  </button>
+                </a>
+              </div>
+            )}
           </div>
         </div>
       ))}
@@ -94,4 +123,3 @@ export default function BannerCarousel() {
     </div>
   )
 }
-
