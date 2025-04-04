@@ -10,11 +10,16 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <Link href={`/productos/${product.id}`} className="group">
       <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform group-hover:shadow-lg group-hover:-translate-y-1">
-        <div className="relative h-48 bg-gray-100">
+        <div className="relative h-48 bg-white border-b border-gray-200">
           {product.image && product.image !== "/imagenes/" ? (
-            <Image src={product.image || "/placeholder.svg"} alt={product.name} fill className="object-contain p-4" />
+            <Image
+              src={product.image || "/placeholder.svg"}
+              alt={product.name}
+              fill
+              className="object-contain p-4"
+            />
           ) : (
-            <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
+            <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
               <span className="text-gray-500">Sin imagen</span>
             </div>
           )}
@@ -30,4 +35,3 @@ export default function ProductCard({ product }: ProductCardProps) {
     </Link>
   )
 }
-
