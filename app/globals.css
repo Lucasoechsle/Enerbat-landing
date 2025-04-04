@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: 225, 38, 29;
+  --secondary: 132, 117, 78;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-gray-900;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/90 transition-colors;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white px-4 py-2 rounded-md hover:bg-secondary/90 transition-colors;
+  }
+
+  .container-custom {
+    @apply container mx-auto px-4 md:px-6 py-8;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-6 text-center;
+  }
+
+  .section-subtitle {
+    @apply text-xl font-semibold mb-4;
+  }
+}
+
