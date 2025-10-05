@@ -1,5 +1,4 @@
 "use client"
-
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
@@ -54,9 +53,8 @@ export default function BannerCarousel() {
       {banners.map((banner, index) => (
         <div
           key={banner.id}
-          className={`absolute top-0 left-0 w-full h-full transition-opacity duration-500 ${
-            index === currentSlide ? "opacity-100" : "opacity-0 pointer-events-none"
-          }`}
+          className={`absolute top-0 left-0 w-full h-full transition-opacity duration-500 ${index === currentSlide ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
         >
           <Image
             src={banner.image || "/placeholder.svg"}
@@ -68,7 +66,6 @@ export default function BannerCarousel() {
           <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-4 text-center space-y-4">
             <h2 className="text-3xl md:text-5xl font-bold">{banner.title}</h2>
             <p className="text-xl md:text-2xl">{banner.description}</p>
-
             {banner.button && (
               <Link href={banner.button.href}>
                 <button className="mt-4 bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition">
@@ -76,7 +73,6 @@ export default function BannerCarousel() {
                 </button>
               </Link>
             )}
-
             {banner.dualButtons && (
               <div className="flex space-x-4 mt-4">
                 <a href="#contacto">
@@ -94,7 +90,6 @@ export default function BannerCarousel() {
           </div>
         </div>
       ))}
-
       <button
         onClick={prevSlide}
         className="absolute left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 transition-all"
@@ -109,7 +104,6 @@ export default function BannerCarousel() {
       >
         <ChevronRight size={24} />
       </button>
-
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
         {banners.map((_, index) => (
           <button

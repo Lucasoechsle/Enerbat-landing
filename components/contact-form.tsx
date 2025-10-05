@@ -1,7 +1,5 @@
 "use client"
-
 import type React from "react"
-
 import { useState } from "react"
 
 export default function ContactForm() {
@@ -19,7 +17,6 @@ export default function ContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Aquí iría la lógica para enviar el formulario
     console.log("Formulario enviado:", formData)
     alert("Gracias por contactarnos. Nos comunicaremos a la brevedad.")
     setFormData({
@@ -103,4 +100,3 @@ export default function ContactForm() {
     </section>
   )
 }
-

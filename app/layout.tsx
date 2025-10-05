@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Enerbat - Baterías de Alta Calidad",
   description:
     "Comercializamos una amplia variedad de baterías para satisfacer todas sus necesidades en cuanto a almacenamiento y suministro de energía.",
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({

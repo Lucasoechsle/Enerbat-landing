@@ -21,7 +21,6 @@ export default function Navbar() {
           <Link href="/" className="flex items-center mt-5">
             <Image src="/enerbat_rgb.svg" alt="Logo" width={180} height={150} />
           </Link>
-
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             {navLinks.map((link) => (
@@ -30,7 +29,6 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
-
           {/* Mobile Navigation Button */}
           <div className="md:hidden">
             <button onClick={() => setIsOpen(!isOpen)} className="text-gray-700 hover:text-primary">
@@ -39,7 +37,6 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-
       {/* Mobile Navigation Menu */}
       {isOpen && (
         <div className="md:hidden bg-white shadow-md">
@@ -60,4 +57,3 @@ export default function Navbar() {
     </nav>
   )
 }
-

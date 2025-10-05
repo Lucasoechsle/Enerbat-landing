@@ -1,5 +1,4 @@
 "use client"
-
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 import { getProductById } from "@/lib/products"
@@ -135,7 +134,6 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
         </>
       )
     }
-
     return null
   }
 
@@ -145,7 +143,6 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
         <ArrowLeft size={20} className="mr-2" />
         Volver a Productos
       </button>
-
       <div className="grid md:grid-cols-2 gap-8">
         <div className="bg-white rounded-lg shadow-md p-6">
           <div className="relative h-80 bg-gray-100 rounded-md">
@@ -158,13 +155,10 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
             )}
           </div>
         </div>
-
         <div className="bg-white rounded-lg shadow-md p-6">
           <h1 className="text-3xl font-bold text-primary">{product.name}</h1>
           <p className="text-lg text-gray-600 mt-2">{product.category}</p>
-
           {renderProductDetails()}
-
           <div className="mt-8">
             <p className="text-gray-700">
               Para más información sobre este producto, por favor contáctenos a través de nuestro formulario de
@@ -176,4 +170,3 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
     </div>
   )
 }
-
