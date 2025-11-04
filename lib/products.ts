@@ -874,4 +874,3 @@ export const getProductsByCategory = (category: string): Product[] => {
   }
   return productosData.filter((product) => product.category === category)
 }
-
