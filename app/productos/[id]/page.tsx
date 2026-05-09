@@ -6,7 +6,7 @@ import { ArrowLeft } from "lucide-react"
 
 export default function ProductDetailPage({ params }: { params: { id: string } }) {
   const router = useRouter()
-  const productId = Number.parseInt(params.id)
+  const productId = Number.parseInt(params.id, 10)
   const product = getProductById(productId)
 
   if (!product) {
@@ -19,6 +19,26 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
       </div>
     )
   }
+
+  const renderDimensions = () => (
+    <div className="mt-6">
+      <h3 className="text-xl font-semibold mb-2">Dimensiones</h3>
+      <div className="grid grid-cols-3 gap-4">
+        <div>
+          <p className="text-sm font-semibold">Largo</p>
+          <p className="text-lg">{product.largo} mm</p>
+        </div>
+        <div>
+          <p className="text-sm font-semibold">Ancho</p>
+          <p className="text-lg">{product.ancho} mm</p>
+        </div>
+        <div>
+          <p className="text-sm font-semibold">Alto</p>
+          <p className="text-lg">{product.alto} mm</p>
+        </div>
+      </div>
+    </div>
+  )
 
   const renderProductDetails = () => {
     if (product.category.includes("Autos")) {
@@ -42,23 +62,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
               <p className="text-lg">{product.CA}</p>
             </div>
           </div>
-          <div className="mt-6">
-            <h3 className="text-xl font-semibold mb-2">Dimensiones</h3>
-            <div className="grid grid-cols-3 gap-4">
-              <div>
-                <p className="text-sm font-semibold">Largo</p>
-                <p className="text-lg">{product.largo} mm</p>
-              </div>
-              <div>
-                <p className="text-sm font-semibold">Ancho</p>
-                <p className="text-lg">{product.ancho} mm</p>
-              </div>
-              <div>
-                <p className="text-sm font-semibold">Alto</p>
-                <p className="text-lg">{product.alto} mm</p>
-              </div>
-            </div>
-          </div>
+          {renderDimensions()}
         </>
       )
     } else if (product.category === "Baterías para Motos") {
@@ -74,23 +78,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
               <p className="text-lg">{product.CCA}</p>
             </div>
           </div>
-          <div className="mt-6">
-            <h3 className="text-xl font-semibold mb-2">Dimensiones</h3>
-            <div className="grid grid-cols-3 gap-4">
-              <div>
-                <p className="text-sm font-semibold">Largo</p>
-                <p className="text-lg">{product.largo} mm</p>
-              </div>
-              <div>
-                <p className="text-sm font-semibold">Ancho</p>
-                <p className="text-lg">{product.ancho} mm</p>
-              </div>
-              <div>
-                <p className="text-sm font-semibold">Alto</p>
-                <p className="text-lg">{product.alto} mm</p>
-              </div>
-            </div>
-          </div>
+          {renderDimensions()}
         </>
       )
     } else if (product.category === "Baterías de Ciclado Profundo") {
@@ -114,23 +102,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
               <p className="text-lg">{product.peso} kg</p>
             </div>
           </div>
-          <div className="mt-6">
-            <h3 className="text-xl font-semibold mb-2">Dimensiones</h3>
-            <div className="grid grid-cols-3 gap-4">
-              <div>
-                <p className="text-sm font-semibold">Largo</p>
-                <p className="text-lg">{product.largo} mm</p>
-              </div>
-              <div>
-                <p className="text-sm font-semibold">Ancho</p>
-                <p className="text-lg">{product.ancho} mm</p>
-              </div>
-              <div>
-                <p className="text-sm font-semibold">Alto</p>
-                <p className="text-lg">{product.alto} mm</p>
-              </div>
-            </div>
-          </div>
+          {renderDimensions()}
         </>
       )
     }
@@ -147,7 +119,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
         <div className="bg-white rounded-lg shadow-md p-6">
           <div className="relative h-80 bg-gray-100 rounded-md">
             {product.image && product.image !== "/imagenes/" ? (
-              <Image src={product.image || "/placeholder.svg"} alt={product.name} fill className="object-contain p-4" />
+              <Image src={product.image} alt={product.name} fill className="object-contain p-4" />
             ) : (
               <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
                 <span className="text-gray-500">Sin imagen</span>

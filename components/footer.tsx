@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { NAV_LINKS } from "@/lib/navigation"
 
 export default function Footer() {
   return (
@@ -14,26 +15,13 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Enlaces</h3>
             <ul className="space-y-2">
-              <li>
-                <Link href="/" className="text-gray-300 hover:text-white transition-colors">
-                  Inicio
-                </Link>
-              </li>
-              <li>
-                <Link href="/#empresa" className="text-gray-300 hover:text-white transition-colors">
-                  Nuestra Empresa
-                </Link>
-              </li>
-              <li>
-                <Link href="/productos" className="text-gray-300 hover:text-white transition-colors">
-                  Productos
-                </Link>
-              </li>
-              <li>
-                <Link href="/#contacto" className="text-gray-300 hover:text-white transition-colors">
-                  Contacto
-                </Link>
-              </li>
+              {NAV_LINKS.map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="text-gray-300 hover:text-white transition-colors">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div>

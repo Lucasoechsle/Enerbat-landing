@@ -3,13 +3,7 @@ import Image from "next/image"
 import { useState } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
-
-const navLinks = [
-  { name: "Inicio", href: "/" },
-  { name: "Nuestra Empresa", href: "/#empresa" },
-  { name: "Productos", href: "/productos" },
-  { name: "Contacto", href: "/#contacto" },
-]
+import { NAV_LINKS } from "@/lib/navigation"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -23,7 +17,7 @@ export default function Navbar() {
           </Link>
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            {navLinks.map((link) => (
+            {NAV_LINKS.map((link) => (
               <Link key={link.name} href={link.href} className="text-gray-700 hover:text-primary transition-colors">
                 {link.name}
               </Link>
@@ -41,7 +35,7 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-white shadow-md">
           <div className="container mx-auto px-4 py-3 space-y-2">
-            {navLinks.map((link) => (
+            {NAV_LINKS.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}

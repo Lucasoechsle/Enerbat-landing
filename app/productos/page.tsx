@@ -1,16 +1,13 @@
 "use client"
 import { useState } from "react"
-import { productosData, getCategories } from "@/lib/products"
+import { getCategories, getProductsByCategory } from "@/lib/products"
 import ProductCard from "@/components/product-card"
 
 export default function ProductosPage() {
   const categories = ["Todos", ...getCategories()]
   const [selectedCategory, setSelectedCategory] = useState("Todos")
 
-  const filteredProducts =
-    selectedCategory === "Todos"
-      ? productosData
-      : productosData.filter((product) => product.category === selectedCategory)
+  const filteredProducts = getProductsByCategory(selectedCategory)
 
   return (
     <div className="container-custom">
